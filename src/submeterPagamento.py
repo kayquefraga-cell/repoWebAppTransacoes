@@ -1,4 +1,4 @@
-from filaConfirmação import filaConfirmação
+from ConfirmaPagamentosFila import filaConfirmação
 
 def submeterPagamento(pagamento):
     '''

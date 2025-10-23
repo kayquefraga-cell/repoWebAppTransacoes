@@ -1,6 +1,6 @@
 # generate tests for files
-from confirmarPagamento import confirmarPagamento
-from filaConfirmação import filaConfirmação
+from ConfirmaPagamento import confirmarPagamento
+from ConfirmaPagamentosFila import filaConfirmação
 
 def test_confirmarPagamento_success():
     payload = {
