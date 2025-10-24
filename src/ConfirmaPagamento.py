@@ -9,9 +9,13 @@ def confirmarPagamento():
     arq = open("./schema/baseDadosRecebedores.json", "r")
     dadosRecebedores = json.loads(arq.read())
     arq.close()
-    for recebedor in dadosRecebedores:
-        if (recebedor["agencia"] == pagamento["agencia"] and 
+    for recebedor in dadosRecebedores['recebedores']:
+        try:
+         if (recebedor["agencia"] == pagamento["agencia"] and 
             recebedor["conta"] == pagamento["conta"] and 
             recebedor["tipo_conta"] == pagamento["tipo_conta"]):
             return {"status": 200, 
                     "mensagem": "Pagamento confirmado com sucesso!"}
+        except KeyError:
+         return {'status': 500,
+                    "mensagem": "preencha todos os campos obrigatórios!"}
